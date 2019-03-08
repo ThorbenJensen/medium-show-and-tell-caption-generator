@@ -45,6 +45,7 @@ python3 /opt/app/medium_show_and_tell_caption_generator/inference.py \
 --vocab_file /opt/app/etc/word_counts.txt \
 --input_files /opt/app/imgs/*
 ```
+
 ## Run with conda environment
 These steps assume that model and vocabulary are already downloaded.
 
@@ -60,4 +61,18 @@ $ source activate show-and-tell
 $ python -m medium_show_and_tell_caption_generator.inference --model_path='etc/show-and-tell.pb' \
 --vocab_file='etc/word_counts.txt' \
 --input_files='imgs/*'
+```
+
+## Generate caption for snapshot from webcam
+These steps assume that model and vocabulary are already downloaded,
+and that a conda environment is built.
+
+Generate captions one time:
+```bash
+$ python -m medium_show_and_tell_caption_generator.webcam
+```
+
+Generate captions continuously:
+```bash
+while true; do python -m medium_show_and_tell_caption_generator.webcam; done
 ```
